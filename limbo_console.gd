@@ -82,7 +82,7 @@ func _init() -> void:
 
 	_open_speed = _options.open_speed
 
-	enabled = ProjectSettings.get_setting_with_override("limbo_console/enabled")
+	enabled = ProjectSettings.get_setting_with_override("limbo_console/enabled") or Engine.is_editor_hint()
 
 
 func _ready() -> void:
