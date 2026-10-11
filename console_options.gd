@@ -8,7 +8,6 @@ const CONFIG_PATH := "res://addons/limbo_console.cfg"
 	"source": "exec",
 	"usage": "help",
 }
-@export var pause_when_open: bool = true
 
 @export var commands_disabled_in_release: Array = [
 	"eval" # enables arbitrary code execution and asset extraction in the running game.

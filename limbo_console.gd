@@ -1046,7 +1046,7 @@ func _show_console() -> void:
 	if not _control.visible and enabled:
 		_control.show()
 		_control_block.show()
-		if _options.pause_when_open:
+		if ProjectSettings.get_setting_with_override("limbo_console/pause_when_open"):
 			_was_already_paused = get_tree().paused
 			if not _was_already_paused:
 				get_tree().paused = true
@@ -1060,7 +1060,7 @@ func _hide_console() -> void:
 		_control.hide()
 		_control_block.hide()
 
-		if _options.pause_when_open:
+		if ProjectSettings.get_setting_with_override("limbo_console/pause_when_open"):
 			if not _was_already_paused:
 				get_tree().paused = false
 		if is_instance_valid(_previous_gui_focus):
