@@ -267,7 +267,7 @@ func print_boxed(p_line: String) -> void:
 var _lines_printed: int = 0
 
 ## Prints a line to the console, and optionally to standard output.
-func print_line(p_line: String, p_stdout: bool = _options.print_to_stdout) -> void:
+func print_line(p_line: String, p_stdout: bool = ProjectSettings.get_setting_with_override("limbo_console/print_to_stdout")) -> void:
 	if _silent:
 		return
 	_lines_printed += 1
@@ -672,6 +672,7 @@ func _greet() -> void:
 	message = message.format({
 		"project_name": ProjectSettings.get_setting("application/config/name"),
 		"project_version": ProjectSettings.get_setting("application/config/version"),
+		"godot_version": "Godot %s" % Engine.get_version_info().string,
 		})
 	if not message.is_empty():
 		if _options.greet_using_ascii_art and AsciiArt.is_boxed_art_supported(message):
