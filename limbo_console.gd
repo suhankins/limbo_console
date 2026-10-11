@@ -278,7 +278,10 @@ func print_line(p_line: String, p_stdout: bool = _options.print_to_stdout) -> vo
 	_output.append_text(p_line)
 	_output.newline()
 	if p_stdout:
-		print(Util.bbcode_strip(p_line))
+		if ProjectSettings.get_setting_with_override("limbo_console/print_to_stdout_rich_text"):
+			print_rich(p_line)
+		else:
+			print(Util.bbcode_strip(p_line))
 
 
 ## Registers a callable as a command, with optional name and description.

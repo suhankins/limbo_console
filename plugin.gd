@@ -90,6 +90,13 @@ func _enable_plugin() -> void:
 		ProjectSettings.set_setting("limbo_console/max_lines_in_console", 500)
 		ProjectSettings.set_initial_value("limbo_console/max_lines_in_console", 500)
 		do_project_setting_save = true
+	
+	if not ProjectSettings.has_setting("limbo_console/print_to_stdout_rich_text"):
+		print("LimboConsole: Adding \"limbo_console/print_to_stdout_rich_text\" option to project settings...")
+
+		ProjectSettings.set_setting("limbo_console/print_to_stdout_rich_text", true)
+		ProjectSettings.set_initial_value("limbo_console/print_to_stdout_rich_text", true)
+		do_project_setting_save = true
 
 	if do_project_setting_save:
 		ProjectSettings.save()
