@@ -31,7 +31,7 @@ func _enable_plugin() -> void:
 		print("LimboConsole: Adding \"limbo_console_toggle\" input action to project settings...")
 
 		var key_event := InputEventKey.new()
-		key_event.keycode = KEY_QUOTELEFT
+		key_event.physical_keycode = KEY_QUOTELEFT
 
 		ProjectSettings.set_setting("input/limbo_console_toggle", {
 			"deadzone": 0.5,
