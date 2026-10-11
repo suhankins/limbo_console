@@ -17,7 +17,7 @@ My fork of Limbo Console, changing a few things to better fit my workflow.
 * Replaced with project settings `disable_in_release_build`, `print_to_stdout`, and `pause_when_open`
     * This way I can add feature tag overrides for them. i.e. disable console in `release_build`, but keep it in `playtest_build`.
 * Added `max_lines_in_console` project setting
-    * At some point my game started lagging *a lot* and I was really confused what was causing it, until I realized that I played for so long and logged so much, that `RichTextLabel` starting lagging my game.
+    * At some point my game started lagging *a lot* and I was really confused what was causing it, until I realized that I played for so long and logged so much, that `RichTextLabel` started lagging my game.
 * Added `print_to_stdout_rich_text` project setting
     * I actually like colorful text in console, but it isn't supported on all platforms, so I made it a project setting.
 * Removed `fps_max`, `fullscreen`, and `vsync` commands
