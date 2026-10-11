@@ -13,7 +13,7 @@ My fork of Limbo Console, changing a few things to better fit my workflow.
 * Changed BBCode stripping to only remove valid BBCode tags
     * My project logs file name in square brackets, and original BBCode stripping logic stripped them away
 * Changed default `limbo_console_toggle` input from using `keycode` to using `physical_keycode`
-    * One of my testers was German and when I told them to open console by pressing the `~` key like in Source games, it didn't work. On German keyboards, "back tick" character is in a different spot. I thought that's an annoying issue to deal with.
+    * One of my testers was German and when I told them to open console by pressing the `~` key like in Source games, it didn't work. On German keyboards, "back tick" character is in a different spot. I thought that's an annoying issue to deal with, so now by using `physical_keycode` we are telling the engine to use whatever key is to the left of `1`.
 * Replaced with project settings `disable_in_release_build`, `print_to_stdout`, and `pause_when_open`
     * This way I can add feature tag overrides for them. i.e. disable console in `release_build`, but keep it in `playtest_build`.
 * Added `max_lines_in_console` project setting
