@@ -265,7 +265,7 @@ func print_boxed(p_line: String) -> void:
 
 
 ## Prints a line to the console, and optionally to standard output.
-func print_line(p_line: String, p_stdout: bool = _options.print_to_stdout) -> void:
+func print_line(p_line: String, p_stdout: bool = ProjectSettings.get_setting_with_override("limbo_console/print_to_stdout")) -> void:
 	if _silent:
 		return
 	_output.text += p_line + "\n"

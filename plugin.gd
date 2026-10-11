@@ -69,6 +69,13 @@ func _enable_plugin() -> void:
 		ProjectSettings.set_setting("limbo_console/enabled", true)
 		ProjectSettings.set_initial_value("limbo_console/enabled", true)
 		do_project_setting_save = true
+	
+	if not ProjectSettings.has_setting("limbo_console/print_to_stdout"):
+		print("LimboConsole: Adding \"limbo_console/print_to_stdout\" option to project settings...")
+
+		ProjectSettings.set_setting("limbo_console/print_to_stdout", true)
+		ProjectSettings.set_initial_value("limbo_console/print_to_stdout", true)
+		do_project_setting_save = true
 
 	if do_project_setting_save:
 		ProjectSettings.save()
