@@ -10,17 +10,10 @@ static func bbcode_escape(p_text: String) -> String:
 		.replace("~RB~", "[rb]")
 
 
+static var valid_print_rich_bbcode_regex := RegEx.create_from_string("\\[/?(?:b|i|u|s|code|center|right|indent|url|color|bgcolor|fgcolor)(?:=[^\\]]*)?\\]")
+
 static func bbcode_strip(p_text: String) -> String:
-	var stripped := ""
-	var in_brackets: bool = false
-	for c: String in p_text:
-		if c == '[':
-			in_brackets = true
-		elif c == ']':
-			in_brackets = false
-		elif not in_brackets:
-			stripped += c
-	return stripped
+	return valid_print_rich_bbcode_regex.sub(p_text, "", true)
 
 
 static func get_method_info(p_callable: Callable) -> Dictionary:
