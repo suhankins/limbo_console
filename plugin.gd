@@ -83,6 +83,13 @@ func _enable_plugin() -> void:
 		ProjectSettings.set_setting("limbo_console/pause_when_open", false)
 		ProjectSettings.set_initial_value("limbo_console/pause_when_open", false)
 		do_project_setting_save = true
+	
+	if not ProjectSettings.has_setting("limbo_console/max_lines_in_console"):
+		print("LimboConsole: Adding \"limbo_console/max_lines_in_console\" option to project settings...")
+
+		ProjectSettings.set_setting("limbo_console/max_lines_in_console", 500)
+		ProjectSettings.set_initial_value("limbo_console/max_lines_in_console", 500)
+		do_project_setting_save = true
 
 	if do_project_setting_save:
 		ProjectSettings.save()

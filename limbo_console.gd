@@ -264,11 +264,19 @@ func print_boxed(p_line: String) -> void:
 		print_line(line)
 
 
+var _lines_printed: int = 0
+
 ## Prints a line to the console, and optionally to standard output.
-func print_line(p_line: String, p_stdout: bool = ProjectSettings.get_setting_with_override("limbo_console/print_to_stdout")) -> void:
+func print_line(p_line: String, p_stdout: bool = _options.print_to_stdout) -> void:
 	if _silent:
 		return
-	_output.text += p_line + "\n"
+	_lines_printed += 1
+	if _lines_printed > ProjectSettings.get_setting_with_override("limbo_console/max_lines_in_console"):
+		_lines_printed = 0
+		clear_console()
+		error("Too many lines in console! Clearing...")
+	_output.append_text(p_line)
+	_output.newline()
 	if p_stdout:
 		print(Util.bbcode_strip(p_line))
 
