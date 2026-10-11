@@ -8,6 +8,23 @@
 ![Static Badge](https://img.shields.io/badge/Godot-4.3-blue?style=flat)
 [![GitHub License](https://img.shields.io/github/license/limbonaut/limbo_console)](https://github.com/limbonaut/limbo_console/blob/master/LICENSE.md)
 
+My fork of Limbo Console, changing a few things to better fit my workflow.
+
+* Changed BBCode stripping to only remove valid BBCode tags
+    * My project logs file name in square brackets, and original BBCode stripping logic stripped them away
+* Changed default `limbo_console_toggle` input from using `keycode` to using `physical_keycode`
+    * One of my testers was German and when I told them to open console by pressing the `~` key like in Source games, it didn't work. On German keyboards, "back tick" character is in a different spot. I thought that's an annoying issue to deal with.
+* Replaced with project settings `disable_in_release_build`, `print_to_stdout`, and `pause_when_open`
+    * This way I can add feature tag overrides for them. i.e. disable console in `release_build`, but keep it in `playtest_build`.
+* Added `max_lines_in_console` project setting
+    * At some point my game started lagging *a lot* and I was really confused what was causing it, until I realized that I played for so long and logged so much, that `RichTextLabel` starting lagging my game.
+* Added `print_to_stdout_rich_text` project setting
+    * I actually like colorful text in console, but it isn't supported on all platforms, so I made it a project setting.
+* Removed `fps_max`, `fullscreen`, and `vsync` commands
+    * These should be custom commands so you can implement your own logic for handling it, i.e. saving it to the settings file
+
+---
+
 A simple and easy-to-use in-game dev console with a command interpreter for Godot Engine 4.
 
 It supports auto-completion with `TAB` for commands and history, auto-correction, inline hints and highlighting, command help text generation, argument parsing for basic types, aliases, custom theming, and more.
